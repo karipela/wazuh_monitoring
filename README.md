@@ -38,6 +38,7 @@ Despliegue de **Wazuh v4.9.0** (`wazuh.manager`, `wazuh.indexer` y `wazuh.dashbo
 │   └── local_rules.xml                    # Reglas personalizadas (#100001 y #105005)
 ├── scripts/
 │   └── monitor_sitios.sh                  # Script de chequeo HTTP de sitios web
+├── .env.example                           # Plantilla de variables de entorno
 ├── docker-compose.yml                     # Definición de servicios, volúmenes y variables de entorno
 └── requirements.txt                       # Dependencias de Python para las integraciones
 ```
@@ -46,20 +47,12 @@ Despliegue de **Wazuh v4.9.0** (`wazuh.manager`, `wazuh.indexer` y `wazuh.dashbo
 
 ## Configuración y Puesta en Marcha
 
-### 1. Variables de Entorno (`.env`)
+### 1. Variables de Entorno
 
-Definí un archivo `.env` en la raíz del proyecto con las credenciales de los servicios y de tu Bot de Telegram:
+Copiá el archivo de ejemplo `.env.example` a `.env` y completá tus credenciales (especialmente `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID`):
 
-```env
-INDEXER_USERNAME=admin
-INDEXER_PASSWORD=SecretPassword
-API_USERNAME=wazuh-wui
-API_PASSWORD=MyS3cr37P450r.*-
-DASHBOARD_USERNAME=kibanaserver
-DASHBOARD_PASSWORD=kibanaserver
-
-TELEGRAM_BOT_TOKEN=tu_bot_token_aqui
-TELEGRAM_CHAT_ID=tu_chat_id_aqui
+```bash
+cp .env.example .env
 ```
 
 ### 2. Iniciar el Entorno
