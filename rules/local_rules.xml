@@ -1,0 +1,18 @@
+<!-- Local rules -->
+<group name="local,syslog,access,web_monitoring,">
+
+  <!-- Regla de ejemplo previa -->
+  <rule id="100001" level="5">
+    <if_sid>5715</if_sid>
+    <description>SSHD: Intento de inicio de sesion fallido detectado por regla local.</description>
+    <group>authentication_failed,</group>
+  </rule>
+
+  <!-- Regla simple de monitoreo web por coincidencia de texto -->
+  <rule id="105005" level="11">
+    <match>caido</match>
+    <description>Alerta por deteccion de caida de sitio web</description>
+    <group>web_monitoring,</group>
+  </rule>
+
+</group>
